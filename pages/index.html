@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/style.css">
     <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 </head>
 <body>
     
@@ -21,6 +23,16 @@
                 </div>
 
                 <div class="others" id="current-weather-items">
+                     <!-- Search Box in the Center -->
+    <div class="weather-container">
+        <div class="search-box">
+          <i class="fas fa-map-marker-alt"></i>
+          <input type="text" id="cityInput" class="search-input" placeholder="Enter city name">
+          <button class="search-button" onclick="getWeather()">Search</button>
+        </div>
+      <div id="weather-result" class="weather-result">
+          <!-- Weather info will be displayed here -->
+      </div>
                     
                     
                 </div>
@@ -79,6 +91,33 @@
 
         </div>
     </div>
+    <!-- Search Box in the Center -->
+    <div class="weather-container">
+      <div class="search-box">
+        <i class="fas fa-map-marker-alt"></i>
+        <input type="text" id="cityInput" class="search-input" placeholder="Enter city name">
+        <button class="search-button" onclick="getWeather()">Search</button>
+      </div>
+    <div id="weather-result" class="weather-result">
+        <!-- Weather info will be displayed here -->
+    </div>
+</div>
+    <!-- Sign-In Button and Form -->
+<div class="signin-container">
+    <button class="signin-button" onclick="toggleSignIn()">Sign In</button>
+
+    <div class="signin-form" id="signinForm">
+        <form action="/login" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <button type="submit">Log In</button>
+        </form>
+    </div>
+</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     

@@ -12,6 +12,16 @@ const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
 
 const API_KEY ="f9d45c4c8f89353f8cbe208be3d2b44a";
 
+// Toggle Sign-In Form Visibility
+function toggleSignIn() {
+    var form = document.getElementById('signinForm');
+    if (form.style.display === "none" || form.style.display === "") {
+        form.style.display = "block";
+    } else {
+        form.style.display = "none";
+    }
+}
+
 setInterval(() => {
     const time = new Date();
     const month = time.getMonth();
@@ -96,10 +106,40 @@ function showWeatherData (data){
     <div class="weather-item">
         <div>Sunset</div>
         <div>${window.moment(sunset*1000).format('HH:mm a')}</div>
-    </div>
-    
-    
-    `;
+    </div>`;
+const baseUrl = "https://api.openweathermap.org/data/2.5/weather";
+
+// Fetch Weather Data
+function getWeather() {
+    const city = document.getElementById('cityInput').value;
+    if (city) {
+        const url = `${baseUrl}?q=${city}&appid=${API_KEY}&units=metric`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => displayWeather(data))
+            .catch(error => {
+                document.getElementById('weather-result').innerHTML = "City not found!";
+                console.error("Error fetching weather data:", error);
+            });
+    }
+}
+
+// Display Weather Data
+function displayWeather(data) {
+    if (data.cod === 200) {
+        const weatherInfo = `
+            <h3>Weather in ${data.name}</h3>
+            <p>Temperature: ${data.main.temp}°C</p>
+            <p>Weather: ${data.weather[0].description}</p>
+            <p>Humidity: ${data.main.humidity}%</p>
+            <p>Wind Speed: ${data.wind.speed} m/s</p>
+        `;
+        document.getElementById('weather-result').innerHTML = weatherInfo;
+    } else {
+        document.getElementById('weather-result').innerHTML = "City not found!";
+    }
+}
 
     let otherDayForcast = ''
     data.daily.forEach((day, idx) => {

@@ -191,3 +191,103 @@ body{
         overflow-x: scroll;
     }
 }
+/* Positioning the Sign-In Button at the Top-Right */
+.signin-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* Sign-In Button Styling */
+.signin-button {
+    padding: 10px 20px;
+    background-color:  rgba(1, 1, 1, 0.2);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.signin-button:hover {
+    background-color: rgba(1, 1, 1,1);
+}
+
+/* Sign-In Form Styling (Hidden by Default) */
+.signin-form {
+    display: none;
+    margin-top: 10px;
+    border: 2px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.signin-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.button{
+    
+}
+/*Centering the Weather Search Box */
+.weather-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+
+.map-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.search-input {
+    width: 300px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+
+/* Weather Result Styling */
+.weather-result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
